@@ -32,7 +32,7 @@ const RegisterPage = () => {
             });
             console.log(response.data);
             if (response.data && !response.data.user.isEmailVerified) {
-                const sendVerificationEmail = await axios.post("http://localhost:3002/v1/auth/send-verification-email", {}, {
+                await axios.post("http://localhost:3002/v1/auth/send-verification-email", {}, {
                     headers: {
                         Authorization: `Bearer ${response.data.tokens.access.token}`,
                     },
