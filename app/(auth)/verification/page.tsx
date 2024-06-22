@@ -50,7 +50,7 @@ const VerificationPage = () => {
                         text: 'Verification completed successfully',
                         icon: 'success',
                         showCancelButton: false,
-                        background: currentTheme === "dark" ? "#292f3a" : "white",
+                        background: currentTheme === "dark" ? "#383838" : "#F9FAFB",
                         confirmButtonColor: "#22c55e",
                         color: currentTheme === "dark" ? "white" : "black",
                         confirmButtonText: 'Go to Home',
@@ -64,7 +64,7 @@ const VerificationPage = () => {
                         icon: 'error',
                         showCancelButton: false,
                         confirmButtonText: 'Go to Register',
-                        background: currentTheme === "dark" ? "#292f3a" : "white",
+                        background: currentTheme === "dark" ? "#383838" : "#F9FAFB",
                         confirmButtonColor: "#22c55e",
                         color: currentTheme === "dark" ? "white" : "black",
                     }).then(() => {
@@ -78,7 +78,7 @@ const VerificationPage = () => {
                     text: 'Verification failed',
                     icon: 'error',
                     showCancelButton: false,
-                    background: currentTheme === "dark" ? "#292f3a" : "white",
+                    background: currentTheme === "dark" ? "#383838" : "#F9FAFB",
                     confirmButtonColor: "#22c55e",
                     color: currentTheme === "dark" ? "white" : "black",
                     confirmButtonText: 'Go to Register',
@@ -98,7 +98,7 @@ const VerificationPage = () => {
             {loading ? <Loader /> : <p className="text-center">
                 Verification completed successfully. Now you can <Link href="/login">Login</Link> with your account.
             </p>}
-            {error && <p className="text-red-500">Invalid Verification Token</p>}
+            {error && <p className="text-green-500 text-xs mt-1">Invalid Verification Token</p>}
         </div>
     );
 };

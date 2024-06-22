@@ -8,8 +8,9 @@ const nextConfig = {
 		],
 	},
 	images: {
-		domains: ["pbs.twimg.com"],
+		domains: ["gravatar.com", "pbs.twimg.com"],
 	}
 }
 
 module.exports = nextConfig
+

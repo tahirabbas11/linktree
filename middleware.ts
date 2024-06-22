@@ -6,8 +6,8 @@ export async function middleware(req: NextRequest, res: NextResponse) {
     const { pathname } = req.nextUrl;
     
     // Get token from cookies
-    const accessToken = req.cookies.get('accessToken');
-    console.log("Middleware : ",accessToken);
+    // const accessToken = req.cookies.get('accessToken');
+    // console.log("Middleware : ",accessToken);
     
 
     // if (accessToken) {

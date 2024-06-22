@@ -1,9 +1,9 @@
 'use client';
 import { TailSpin } from 'react-loader-spinner'
 
-const Loader = () => {
+const InfinityLoader = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <TailSpin
         visible={true}
         height="80"
@@ -18,4 +18,5 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default InfinityLoader;
+

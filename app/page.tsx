@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image"
 import data from "../data.json"
 import LinkCard from "./components/LinkCard"
@@ -19,9 +20,9 @@ const HomePage = () => {
 			<p className="mb-8 text-gray-500 font-medium text-center font-popins text-sm sm:text-base">
 				{data.bio}
 			</p>
-			{data.links.map((link) => (
+			{/* {data.links.map((link) => (
 				<LinkCard key={link.url} {...link} />
-			))}
+			))} */}
 		</div>
 	)
 }
