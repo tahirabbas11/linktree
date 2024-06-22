@@ -45,7 +45,7 @@ const ResetPasswordPage = () => {
       }
       try {
         const response = await axios.post(
-          `http://localhost:3002/v1/auth/reset-password?token=${token}`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/auth/reset-password?token=${token}`,
           {
             password: values.password,
           }

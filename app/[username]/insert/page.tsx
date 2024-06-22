@@ -36,7 +36,7 @@ const Searchslug = ({ params }: SearchslugProps) => {
       console.log('Username:', params.username);
       try {
         const response = await axios.post(
-          `http://localhost:3002/v1/link/${params.username}`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/link/${params.username}`,
           {
             link: values.url,
             slug: values.slug,

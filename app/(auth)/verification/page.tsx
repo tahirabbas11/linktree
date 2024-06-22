@@ -35,7 +35,7 @@ const VerificationPage = () => {
     async function verifyEmail(token: string) {
       try {
         const res = await axios.post(
-          `http://localhost:3002/v1/auth/verify-email?token=${token}`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/auth/verify-email?token=${token}`,
           {},
           {
             headers: {

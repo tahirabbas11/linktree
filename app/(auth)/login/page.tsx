@@ -9,10 +9,15 @@ import Swal from 'sweetalert2';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Loader from '@/app/components/Loader';
+import { useSelector, useDispatch } from '@/lib/store';
+import { loginSuccess, logoutSuccess } from '@/lib/slices/mainSlice';
+import { setUserDetails } from '@/lib/slices/userSlice';
 
 const LoginPage = () => {
-  const { systemTheme, theme } = useTheme();
   const router = useRouter();
+  const dispatch = useDispatch();
+  const { systemTheme, theme } = useTheme();
+  // const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const currentTheme = theme === 'system' ? systemTheme : theme;
 
@@ -34,7 +39,7 @@ const LoginPage = () => {
       try {
         setIsLoginLoading(true);
         const response = await axios.post(
-          'http://localhost:3002/v1/auth/login',
+          `${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`,
           {
             email: values.email,
             password: values.password,
@@ -46,7 +51,17 @@ const LoginPage = () => {
           console.log(response.data);
 
           // Set the access token in a cookie for 30 minutes
-          Cookies.set('accessToken', token, { expires: 0.5 }); // 0.5 day = 12 hours; 0.5/24 = 0.02083 day = 30 minutes
+          Cookies.set('accessToken', token, { expires: 0.5 });
+          dispatch(loginSuccess(true));
+          // Dispatch setUserDetails action to update Redux state
+          dispatch(
+            setUserDetails({
+              name: response.data.user.name,
+              displayName: response.data.user.displayName,
+              email: response.data.user.email,
+              isEmailVerified: response.data.user.isEmailVerified,
+            })
+          );
           router.push('/');
         } else {
           console.log('Email not verified');
@@ -63,7 +78,7 @@ const LoginPage = () => {
             // router.push("/login");
             axios
               .post(
-                'http://localhost:3002/v1/auth/send-verification-email',
+                `${process.env.NEXT_PUBLIC_BASE_URL}/auth/send-verification-email`,
                 {},
                 {
                   headers: {
@@ -111,9 +126,12 @@ const LoginPage = () => {
 
     if (email) {
       try {
-        await axios.post('http://localhost:3002/v1/auth/forgot-password', {
-          email,
-        });
+        await axios.post(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/auth/forgot-password`,
+          {
+            email,
+          }
+        );
         Swal.fire({
           title: 'Email Sent',
           text: 'We sent a verification email to your email address. Please check your email to continue.',
@@ -186,7 +204,7 @@ const LoginPage = () => {
             disabled={formik.isSubmitting || isLoginLoading}
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
           >
-            {isLoginLoading ? <Loader /> : 'Login'}
+            Login
           </button>
           <button
             type="button" // Add type="button" to prevent form submission

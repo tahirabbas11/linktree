@@ -177,7 +177,7 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
   const handleSelectIcon = (selectedIcon: any) => {
     onSelect(selectedIcon.label);
     setOptionSelected(selectedIcon.label);
-    setSearchTerm('');
+    setSearchTerm(selectedIcon.label);
     setIsOpen(false);
   };
 
@@ -234,7 +234,7 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
       <input
         type="text"
         placeholder="Search icons"
-        value={optionSelected}
+        value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onClick={toggleDropdown}
         className="mb-2 p-4 w-full rounded-md border border-gray-300"

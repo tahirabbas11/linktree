@@ -46,7 +46,7 @@ const HomePage = ({ params }: { params: { username: string } }) => {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          `http://127.0.0.1:3002/v1/link/${params.username}`
+          `${process.env.NEXT_PUBLIC_BASE_URL}/link/${params.username}`
         );
         setUser(response.data);
         setErrorMessage(null);

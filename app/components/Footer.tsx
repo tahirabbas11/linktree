@@ -1,21 +1,22 @@
-import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
 
-const Footer = () => {
-  return (
-    <footer className="py-5 flex items-center justify-center fixed bottom-0 left-0 w-full">
-      {/* <h1 className="font-popins font-normal text-2xl">Linktree 🏝️</h1> */}
-      {/* <p className="font-popins font-normal text-sm inline">Create by <a className="underline inline" href="https://thetahirabbas.netlify.app/"><FaGithub /> @tahirabbas11</a> 💚</p> */}
-      <p className="font-popins font-normal text-sm inline">
-        Create by{' '}
-        <Link
-          href="https://thetahirabbas.netlify.app/"
-          style={{ display: 'inline-flex', alignItems: 'center' }}
-        >
-          <FaGithub style={{ marginRight: '4px' }} /> @tahirabbas11
-        </Link>
-      </p>
-    </footer>
-  );
-};
+const Footer = () => (
+  <footer className="py-5 flex items-center justify-center fixed bottom-0 left-0 w-full">
+    <p className="font-popins font-normal text-sm inline dark:text-gray-400">
+      made by{'  '}
+      {/* <FaGithub style={{ marginRight: '4px' }} />  */}
+      <Link
+        href={
+          process.env.NEXT_PUBLIC_GITHUB_URL ||
+          'https://thetahirabbas.netlify.app/'
+        }
+        className="dark:text-white light:text-black"
+        style={{ display: 'inline-flex', alignItems: 'center' }}
+      >
+        {/* @tahirabbas11 */}
+        Tahir
+      </Link>
+    </p>
+  </footer>
+);
 export default Footer;
