@@ -70,6 +70,15 @@ const HomePage = ({ params }: { params: { username: string } }) => {
   if (errorMessage) {
     return (
       <div className="flex justify-center items-center flex-col mx-auto w-full pt-40 px-8">
+        {/* <Image
+          alt='Profile Image'
+          src={
+            `/images/logo.png`
+          }
+          width={400}
+          height={400}
+          className="rounded-full mb-4 mix-blend-mode: multiply"
+        /> */}
         <InfinityLoader
           // @ts-ignore
           className="mb-4"
@@ -95,9 +104,9 @@ const HomePage = ({ params }: { params: { username: string } }) => {
     <>
       <div className="flex justify-center items-center flex-col mx-auto w-full pt-12 px-8">
         <Image
-          alt={data.name}
+          alt='Profile Image'
           src={
-            'https://gravatar.com/avatar/68e8f3678e68efb9b4827e0204a0e8ce?s=400&d=mp&r=pg'
+            `/images/randomprofile.png`
           }
           width={96}
           height={96}

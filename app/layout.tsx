@@ -28,7 +28,7 @@ export default function RootLayout({
     // <html className="h-full scroll-smooth">
     <html>
       <head />
-      {/* <body className="bg-gradient-to-r from-green-50 to-green-200 dark:bg-gradient-to-t dark:from-[#242933] dark:to-[#2A303C] max-w-3xl mx-auto transition-all duration-150"> */}
+      {/* <body className="bg-gradient-to-r from-green-50 to-green-200 dark:bg-gradient-to-r dark:from-[#242933] dark:to-[#2A303C] max-w-3xl mx-auto transition-all duration-150"> */}
       <body className="bg-[#FFFFFF] dark:bg-[#212121] max-w-3xl mx-auto transition-all duration-150">
         <ReduxProviders>
           <Providers>

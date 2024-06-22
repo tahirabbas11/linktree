@@ -159,9 +159,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div
-      className={`flex justify-center items-center flex-col mx-auto w-full pt-12 px-8`}
-    >
+    <div className={`flex justify-center items-center flex-col mx-auto w-full pt-12 px-8`}>
       <h1 className="my-4 text-2xl font-semibold font-oswald">Login</h1>
       <form onSubmit={formik.handleSubmit} className="mb-8 flex flex-col">
         <div className="flex flex-col mb-4">
@@ -206,26 +204,31 @@ const LoginPage = () => {
           >
             Login
           </button>
-          <button
-            type="button" // Add type="button" to prevent form submission
-            className="text-blue-500 font-medium cursor-pointer"
-            onClick={handleForgotPassword} // Simplify the onClick handler
-          >
-            Forgot Password
-          </button>
           {isForgotPasswordLoading && <Loader />}
         </div>
       </form>
-      <p className="mt-4 text-center">
+      
+      <p className="mt-4 text-center text-sm">
         Don't have an account?{' '}
         <Link href="/register">
-          <span className="text-green-500 font-medium cursor-pointer">
+          <span className="text-green-500 font-medium cursor-pointer text-sm">
             Register
           </span>
         </Link>
+        <div>
+
+        <button
+            type="button" // Add type="button" to prevent form submission
+            className="text-blue-500 font-medium cursor-pointer text-sm"
+            onClick={handleForgotPassword} // Simplify the onClick handler
+          >
+            Forgot Password
+          </button> 
+        </div>
       </p>
     </div>
   );
 };
 
 export default LoginPage;
+

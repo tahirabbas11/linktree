@@ -186,7 +186,7 @@ const RegisterPage = () => {
           </button>
         </div>
       </form>
-      <p className="mt-4 text-center">
+      <p className="mt-4 text-center text-sm">
         Already have an account?{' '}
         <Link href="/login">
           <span className="text-green-500 font-medium cursor-pointer">
