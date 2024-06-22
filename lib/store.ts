@@ -34,9 +34,6 @@
 // // Export the Redux store, dispatch, useSelector, and useDispatch for use in components
 // export { store, dispatch, useSelector, useDispatch };
 
-
-
-
 // import { configureStore } from '@reduxjs/toolkit';
 // import {
 //   TypedUseSelectorHook,
@@ -61,9 +58,6 @@
 // const useDispatch = () => useAppDispatch<AppDispatch>();
 
 // export { store, useSelector, useDispatch };
-
-
-
 
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import {

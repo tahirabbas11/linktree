@@ -1,5 +1,5 @@
 'use client';
-import { TailSpin } from 'react-loader-spinner'
+import { TailSpin } from 'react-loader-spinner';
 
 const InfinityLoader = () => {
   return (
@@ -19,4 +19,3 @@ const InfinityLoader = () => {
 };
 
 export default InfinityLoader;
-

@@ -16,13 +16,13 @@ This will start the Next.js development server and you should be able to access 
 
 This starter template includes the following features:
 
--   Next.js 13
--   Tailwind CSS
--   Dark mode with `next-themes`
--   `pnpm` for package management
--   `use-sound` A React Hook for Sound Effects
--   Basic file structure for a Next.js project
--   Customizable `tailwind.config.js` file
+- Next.js 13
+- Tailwind CSS
+- Dark mode with `next-themes`
+- `pnpm` for package management
+- `use-sound` A React Hook for Sound Effects
+- Basic file structure for a Next.js project
+- Customizable `tailwind.config.js` file
 
 Feel free to modify or remove any of these features as needed to fit your project requirements.
 
@@ -41,4 +41,5 @@ This starter template was created by Vadim Ghedreutan and is released under the 
 ## License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
 # linktree

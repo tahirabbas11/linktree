@@ -1,10 +1,10 @@
-"use client";
-import Cookies from "js-cookie";
-import DarkModeBtn from "./DarkModeBtn";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useSelector, useDispatch } from "@/lib/store"; // Import custom hooks
-import { logoutSuccess } from "@/lib/slices/mainSlice"; // Import action
+'use client';
+import Cookies from 'js-cookie';
+import DarkModeBtn from './DarkModeBtn';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useSelector, useDispatch } from '@/lib/store'; // Import custom hooks
+import { logoutSuccess } from '@/lib/slices/mainSlice'; // Import action
 
 const Header = () => {
   const router = useRouter();

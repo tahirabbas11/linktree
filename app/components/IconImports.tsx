@@ -62,7 +62,7 @@ import {
   FaWindows,
   FaXbox,
   FaYahoo,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 
 export {
   FaLinkedin,

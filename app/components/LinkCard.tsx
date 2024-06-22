@@ -1,8 +1,9 @@
-import { useTheme } from "next-themes";
-import * as Icons from "./IconImports"; // Import all icons from IconImports.tsx
-import { BsThreeDotsVertical } from "react-icons/bs";
-import Link from "next/link";
-
+import { useTheme } from 'next-themes';
+import * as Icons from './IconImports'; // Import all icons from IconImports.tsx
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import Link from 'next/link';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 interface Props {
   url: string;
@@ -75,31 +76,59 @@ const iconComponents: { [key: string]: any } = {
   Yahoo: Icons.FaYahoo,
 };
 
-const LinkCard = ({ url, title}: Props) => {
+const LinkCard = ({ url, title }: Props) => {
   const { systemTheme, theme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const currentTheme = theme === 'system' ? systemTheme : theme;
 
-  // Capitalize the first letter of the title
   const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
-
-  // Get the appropriate icon component or default to FaGlobe
   const IconComponent = iconComponents[capitalizedTitle] || Icons.FaGlobe;
+  const bgColor = currentTheme === 'dark' ? 'bg-[#383838]' : 'bg-[#F9FAFB]';
 
-  const bgColor = currentTheme === "dark" ? "bg-[#383838]" : "bg-[#F9FAFB]";
+  const handleThreeDotsClick = () => {
+    // Use SweetAlert for modal dialog
+    Swal.fire({
+      title: '',
+      showCancelButton: true,
+      confirmButtonText: 'Update',
+      cancelButtonText: 'Delete',
+      showLoaderOnConfirm: true,
+      allowOutsideClick: false,
+      background: currentTheme === 'dark' ? '#383838' : '#F9FAFB',
+      confirmButtonColor: '#22c55e',
+      preConfirm: (result) => {
+        if (result === 'update') {
+          // Perform update action
+          return new Promise((resolve: any) => {
+            setTimeout(() => {
+              resolve();
+            }, 2000); // Simulating async update process
+          });
+        } else if (result === 'delete') {
+          // Perform delete action
+          return new Promise((resolve: any) => {
+            setTimeout(() => {
+              resolve();
+            }, 2000); // Simulating async delete process
+          });
+        }
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Action completed!',
+        });
+      }
+    });
+  };
 
   return (
-    <Link
-      href={url}
+    <div
       className={`flex p-4 mb-3 rounded-lg w-full border border-gray-300 ${bgColor} transition-all duration-150 hover:scale-105 hover:border-green-500 max-w-[25rem]`}
-      target="_blank"
-      rel="noopener noreferrer"
     >
       <div className="flex items-center w-full">
         <div className="flex items-center justify-center flex-shrink-0">
-          <IconComponent
-            size={30} // Adjust size as needed
-            className="mr-4 duration-200"
-          />
+          <IconComponent size={30} className="mr-4 duration-200" />
         </div>
         <div className="flex-grow text-center">
           <h2 className="font-poppins font-medium text-sm sm:text-base">
@@ -109,11 +138,12 @@ const LinkCard = ({ url, title}: Props) => {
         <div className="flex-shrink-0">
           <BsThreeDotsVertical
             size={30}
-            className="ml-auto duration-200 hover:bg-green-500 rounded-full p-1"
+            className="ml-auto duration-200 hover:bg-green-500 rounded-full p-1 cursor-pointer"
+            onClick={handleThreeDotsClick}
           />
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

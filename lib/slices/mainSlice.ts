@@ -1,4 +1,4 @@
-import { createSlice, Dispatch } from "@reduxjs/toolkit";
+import { createSlice, Dispatch } from '@reduxjs/toolkit';
 
 // Define the interface for the state managed by this slice
 interface LoginState {
@@ -12,7 +12,7 @@ const initialState: LoginState = {
 
 // Create a Redux slice for managing login state
 export const mainSlice = createSlice({
-  name: "login", // Name of the slice
+  name: 'login', // Name of the slice
   initialState, // Initial state
   reducers: {
     // Reducer for updating isLoggedIn after a successful login

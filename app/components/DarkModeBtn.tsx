@@ -1,24 +1,24 @@
-"use client";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import useSound from "use-sound";
-import { useSelector, useDispatch } from "@/lib/store"; // Import custom hooks
-import { setDarkMode } from "@/lib/slices/themeSlice"; // Import action
+'use client';
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import useSound from 'use-sound';
+import { useSelector, useDispatch } from '@/lib/store'; // Import custom hooks
+import { setDarkMode } from '@/lib/slices/themeSlice'; // Import action
 
 const DarkModeBtn = () => {
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
-  const [play] = useSound("./sound/bubble-sound.mp3");
+  const [play] = useSound('./sound/bubble-sound.mp3');
   const dispatch = useDispatch();
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   useEffect(() => {
     setMounted(true);
-    if (theme === "system") {
-      dispatch(setDarkMode(systemTheme === "dark"));
+    if (theme === 'system') {
+      dispatch(setDarkMode(systemTheme === 'dark'));
     } else {
-      dispatch(setDarkMode(theme === "dark"));
+      dispatch(setDarkMode(theme === 'dark'));
     }
   }, [theme, systemTheme, dispatch]);
 
@@ -33,10 +33,10 @@ const DarkModeBtn = () => {
   const handleThemeToggle = () => {
     handlePlay();
     if (isDarkMode) {
-      setTheme("light");
+      setTheme('light');
       dispatch(setDarkMode(false));
     } else {
-      setTheme("dark");
+      setTheme('dark');
       dispatch(setDarkMode(true));
     }
   };

@@ -1,11 +1,11 @@
-"use client";
-import { InfinitySpin } from "react-loader-spinner";
+'use client';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const Loader = ({}) => {
   return (
     <div>
       <InfinitySpin
-      // @ts-ignore
+        // @ts-ignore
         visible={true}
         width="200"
         height="200"

@@ -1,19 +1,19 @@
 {
-    "name": "vadimghedreutan",
-    "avatar": "https://gravatar.com/avatar/8a95d13cfd8b531581189c9a8c8754e8?s=400&d=robohash&r=x",
-    "bio": "I am skilled in computer systems, networks, servers, react, css frameworks",
-    "links": [
-        {
-            "title": "Vadim Ghedreutan | Blog",
-            "url": "https://vadimghedreutan.io"
-        },
-        {
-            "title": "vadimghedreutan",
-            "url": "http://www.linkedin.com/in/vadimghedreutan"
-        },
-        {
-            "title": "vadimghedreutan",
-            "url": "https://www.instagram.com/imrankhan"
-        }
-    ]
+  "name": "vadimghedreutan",
+  "avatar": "https://gravatar.com/avatar/8a95d13cfd8b531581189c9a8c8754e8?s=400&d=robohash&r=x",
+  "bio": "I am skilled in computer systems, networks, servers, react, css frameworks",
+  "links": [
+    {
+      "title": "Vadim Ghedreutan | Blog",
+      "url": "https://vadimghedreutan.io"
+    },
+    {
+      "title": "vadimghedreutan",
+      "url": "http://www.linkedin.com/in/vadimghedreutan"
+    },
+    {
+      "title": "vadimghedreutan",
+      "url": "https://www.instagram.com/imrankhan"
+    }
+  ]
 }
