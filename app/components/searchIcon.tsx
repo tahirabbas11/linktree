@@ -164,7 +164,7 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Get the theme state from Redux
-  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
+  const isDarkMode = useSelector((state: any) => state.theme.isDarkMode);
 
   useEffect(() => {
     setFilteredIcons(iconList);
