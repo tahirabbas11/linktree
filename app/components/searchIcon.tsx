@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef} from "react";
 import Fuse from "fuse.js";
 import { Select, ConfigProvider } from "antd";
+import { useSelector } from "react-redux";
 import { useTheme } from "next-themes";
 import {
   FaLinkedin,
@@ -149,20 +150,15 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
   onSelect,
 }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [currentTheme, SetCurrentTheme] = useState<any>("");
   const [optionSelected, setOptionSelected] = useState<string>("");
   const [filteredIcons, setFilteredIcons] = useState<Icon[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Define currentTheme and update it on component render
-  // const currentTheme = localStorage.getItem("theme") || 'dark';
-  const { systemTheme, theme } = useTheme();
-
-  
+  // Get the theme state from Redux
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   useEffect(() => {
-    SetCurrentTheme(theme === "system" ? systemTheme : theme);
     setFilteredIcons(iconList);
   }, []);
 
@@ -197,14 +193,13 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
   const listStyle = {
     maxHeight: '200px',
     overflowY: 'auto' as const,
-    border: `1px solid ${currentTheme === "dark" ? "#383838" : "#fff"}`,
+    border: `1px solid ${isDarkMode ? "#383838" : "#fff"}`,
     borderRadius: '4px',
     display: isOpen ? 'block' : 'none',
-    // position: 'absolute',
     width: '100%',
     zIndex: 1,
-    background: currentTheme === "dark" ? "#383838" : "#fff",
-    color: currentTheme === "dark" ? "#fff" : "#383838",
+    background: isDarkMode ? "#383838" : "#fff",
+    color: isDarkMode ? "#fff" : "#383838",
   };
 
   const listItemStyle = {
@@ -212,7 +207,7 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
     alignItems: 'center',
     padding: '8px',
     cursor: 'pointer',
-    borderBottom: `1px solid ${currentTheme === "dark" ? "#383838" : "#fff"}`,
+    borderBottom: `1px solid ${isDarkMode ? "#383838" : "#fff"}`,
     transition: 'background-color 0.3s',
   };
 
@@ -233,8 +228,8 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
         onClick={toggleDropdown}
         className="mb-2 p-4 w-full rounded-md border border-gray-300"
         style={{
-          background: currentTheme === "dark" ? "#383838" : "#fff",
-          color: currentTheme === "dark" ? "#fff" : "#383838",
+          background: isDarkMode ? "#383838" : "#fff",
+          color: isDarkMode ? "#fff" : "#383838",
         }}
       />
       {isOpen && (
@@ -258,4 +253,3 @@ const IconDropdown: React.FC<{ onSelect: (icon: any) => void }> = ({
 };
 
 export default IconDropdown;
-

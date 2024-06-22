@@ -9,7 +9,11 @@ const nextConfig = {
 	},
 	images: {
 		domains: ["gravatar.com", "pbs.twimg.com"],
-	}
+	},
+	compiler: {
+		// Remove all console logs
+		removeConsole: true
+	  }
 }
 
 module.exports = nextConfig
